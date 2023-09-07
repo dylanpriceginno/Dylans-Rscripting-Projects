@@ -1,4 +1,3 @@
-# Rscript Projects
 #### These are small projects I decided to work on to improve my R skills, they are very varied and all were done with the aim of filling gaps in my R scripting.
 
 #### IMDB Web scraper
