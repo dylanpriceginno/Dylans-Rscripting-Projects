@@ -63,103 +63,88 @@ Results
 ![image](https://github.com/dylanpriceginno/Dylans-Rscripting-Projects/assets/85695465/afca8c60-105f-4ed5-979a-02e6d526aaf6)
 
 
+## Fibonacci Sequence Generator
+### Generate a Fibonacci sequence with a specified number of terms using the following code:
 
+x <- as.integer(readline("How many terms of the Fibonacci sequence do you want?"))
 
-### Fibonacci sequence generator
-
-x = as.integer(readline("How many terms of Fibonacci sequence do you want"))
-
-fibonacci = function(x){
-
-n1=0
-
-n2=1
-
-n3=n1+n2
-
-count=2
-
-if(x<=0){print("Please enter correct number of terms to be generated(postive integer)?")
-
-  }else if (x==1){print("Fibonacci Sequence :")
+fibonacci <- function(x) {
+  n1 <- 0
+  n2 <- 1
+  n3 <- n1 + n2
+  count <- 2
   
-print(n1)
-
-  } else {
-  
-    print("Fibonacci Sequence :")
-    
+  if (x <= 0) {
+    print("Please enter a correct number of terms to be generated (positive integer).")
+  } else if (x == 1) {
+    print("Fibonacci Sequence:")
     print(n1)
-    
+  } else {
+    print("Fibonacci Sequence:")
+    print(n1)
     print(n2)
     
-    while(count < x){
-    
-      n3=n1+n2
-      
+    while (count < x) {
+      n3 <- n1 + n2
       print(n3)
-      
-      n1 = n2
-      
-      n2 = n3
-      
-      count = count +1
-      
+      n1 <- n2
+      n2 <- n3
+      count <- count + 1
     }
-  } 
+  }
 }
 
-fibonacci(x = as.integer(readline("how many terms do you want? :")))
 
-### Calculator function
+## Fibnacci Sequence Generator in action
 
-f= (readline("Do you want to Add(a)
+fibonacci(x)
 
-             \n Subtract(s)
-             \n Divide(d)
-             \n Multiply(m)
-             \n Modulo(mod)
-             \n Power(p) :"))
+How many terms of the Fibonacci sequence do you want?: 8
 
-x = as.numeric(readline("Enter your first number :"))
-y = as.numeric(readline("Enter your second number:"))
+[1] "Fibonacci Sequence :"
+[1] 0
+[1] 1
+[1] 1
+[1] 2
+[1] 3
+[1] 5
+[1] 8
+[1] 13
+
+## Calculator Function
+### Perform basic mathematical operations with this calculator function:
 
 
-result = switch(f, 
-                "a" = cat("Addition =", x+y),
-                "s" = cat("Subtraction =", x-y),
-                "d" = cat("Division =", x/y),
-                "m" = cat("Multiply =", x*y),
-                "mod" = cat("Modulo =", x%%y),
-                "p" = cat("Power =", x^y)
+f <- readline("Do you want to:\nAdd(a)\nSubtract(s)\nDivide(d)\nMultiply(m)\nModulo(mod)\nPower(p): ")
+
+x <- as.numeric(readline("Enter your first number: "))
+
+y <- as.numeric(readline("Enter your second number: "))
+
+result <- switch(
+  f,
+  "a" = cat("Addition =", x + y),
+  "s" = cat("Subtraction =", x - y),
+  "d" = cat("Division =", x / y),
+  "m" = cat("Multiply =", x * y),
+  "mod" = cat("Modulo =", x %% y),
+  "p" = cat("Power =", x^y)
 )
 
-#### Caculator in action
-Do you want to Add(a)
-             
- Subtract(s)
-             
- Divide(d)
-             
- Multiply(m)
-             
- Modulo(mod)
-             
- Power(p) :
- 
- a
- 
-> x = as.numeric(readline("Enter your first number :"))
-Enter your first number :12
-> y = as.numeric(readline("Enter your second number:"))
-Enter your second number:12
-> result = switch(f, 
-+                 "a" = cat("Addition =", x+y),
-+                 "s" = cat("Subtraction =", x-y),
-+                 "d" = cat("Division =", x/y),
-+                 "m" = cat("Multiply =", x*y),
-+                 "mod" = cat("Modulo =", x%%y),
-+                 "p" = cat("Power =", x^y)
-+ )
-Addition = 24
+## Calculator in Action
 
+Do you want to:
+Add(a)
+Subtract(s)
+Divide(d)
+Multiply(m)
+Modulo(mod)
+Power(p): 
+
+a
+
+Enter your first number: 12
+
+Enter your second number: 12
+
+Addition = 24
