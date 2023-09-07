@@ -2,7 +2,8 @@
 
 #### IMDB Web scraper
 
-#installing packages
+## Installation
+Before using the IMDb Web Scraper, make sure to install the required packages by running the following commands:
 
 install.packages("rvest")
 
@@ -12,69 +13,52 @@ library(rvest)
 
 library(dplyr)
 
-#adding link to IMDB current top 50 Adventure films and TV shows
+## Usage
 
-link = "https://www.imdb.com/search/title/?genres=Adventure&ref_=nv_sr_srsg_0_tt_7_nm_0_q_adventure"
+To scrape the current top 50 Adventure films and TV shows on IMDb, use the following code:
 
-page = read_html(link)
+## Define the IMDb Adventure genre link
+link <- "https://www.imdb.com/search/title/?genres=Adventure&ref_=nv_sr_srsg_0_tt_7_nm_0_q_adventure"
 
-#add variables
+## Read the HTML page
+page <- read_html(link)
 
-titles = page %>%
-
-  html_nodes(".lister-item-header a") %>% 
-  
-  html_text()
-
-titles
-
-year = page %>%
-
-  html_nodes(".text-muted.unbold") %>%
-  
-  html_text()
-
-year
-
-rating = page %>%
-
-  html_nodes(".ratings-imdb-rating strong") %>%
-  
-  html_text()
-  
-rating
-
-#Ratings cause issues as list includes movies not yet rated, excluded from dataset
-
-description = page %>%
-
-  html_nodes(".text-muted+ .text-muted , .ratings-bar+ .text-muted") %>%
-  
-  html_text()
-  
-description
-
-#make a dataframe
-
-movies = data.frame(titles, year, description, stringsAsFactors = FALSE)
-
-#link to url
-
-movie_url = page %>%
-
+## Extract movie titles
+titles <- page %>%
   html_nodes(".lister-item-header a") %>%
-  
+  html_text()
+
+## Extract release years
+year <- page %>%
+  html_nodes(".text-muted.unbold") %>%
+  html_text()
+
+## Extract ratings
+rating <- page %>%
+  html_nodes(".ratings-imdb-rating strong") %>%
+  html_text()
+
+#### I decided to exclude rating as some of the movies/tv did not have a review yet
+
+## Extract movie descriptions
+description <- page %>%
+  html_nodes(".text-muted+ .text-muted , .ratings-bar+ .text-muted") %>%
+  html_text()
+
+## Extract URL
+movie_url = page %>%
+  html_nodes(".lister-item-header a") %>%
   html_attr("href") %>%
-  
   paste("https://www.imdb.com", .,sep="")
-  
 movie_url
 
-#make a dataframe + add url
-
+## Create a dataframe
 movies = data.frame(titles, year, description,movie_url, stringsAsFactors = FALSE)
 
+## View the dataframe
 view(movies)
+
+Results
 
 ![image](https://github.com/dylanpriceginno/Dylans-Rscripting-Projects/assets/85695465/afca8c60-105f-4ed5-979a-02e6d526aaf6)
 
