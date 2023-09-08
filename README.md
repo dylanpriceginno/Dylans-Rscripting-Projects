@@ -84,7 +84,7 @@ fibonacci <- function(x) {
     print(n1)
     print(n2)
     
-    while (count < x) {
+  while (count < x) {
       n3 <- n1 + n2
       print(n3)
       n1 <- n2
@@ -95,7 +95,7 @@ fibonacci <- function(x) {
 }
 
 
-## Fibnacci Sequence Generator in action
+### Fibonacci Sequence Generator in action
 
 fibonacci(x)
 
@@ -131,7 +131,7 @@ result <- switch(
   "p" = cat("Power =", x^y)
 )
 
-## Calculator in Action
+### Calculator in Action
 
 Do you want to:
 Add(a)
